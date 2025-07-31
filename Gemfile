@@ -36,6 +36,7 @@ gem 'bootsnap', require: false
 
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'devise'
 gem 'faker'
 gem 'hamlit'
 gem 'sassc-rails'
