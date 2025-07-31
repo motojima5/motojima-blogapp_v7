@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
     validates :title, presence: true
     validates :title, length: { minimum: 2, maximum: 100 }
-    validates :title, format: { with: /\A(?!\@)/ }
+    validates :title, format: { with: /\A(?!\@).*\z/ }
 
     validates :content, presence: true
     validates :content, length: { minimum: 10 }
