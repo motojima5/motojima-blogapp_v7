@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
 10.times do
     Article.create(
         title: Faker::Lorem.sentence(word_count: 5),
