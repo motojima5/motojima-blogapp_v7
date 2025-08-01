@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 require 'dotenv'
-if ['development', 'test'].include? ENV['RAILS_ENV']
+if [ 'development', 'test' ].include? ENV['RAILS_ENV']
   Dotenv::Railtie.load
 end
 
