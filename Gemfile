@@ -40,7 +40,7 @@ gem 'devise'
 gem 'faker'
 gem 'hamlit'
 gem 'sassc-rails'
-gem 'psych', '~> 3.1'
+gem 'psych', '~> 5.2'
 gem 'active_decorator'
 
 group :development, :test do
