@@ -4,6 +4,18 @@ import "@hotwired/turbo-rails"
 import "trix"
 import "@rails/actiontext"
 
+import $ from "jquery";
+window.$ = $;
+window.jQuery = $;
+
 document.addEventListener('DOMContentLoaded', () => {
-  window.alert('DOM Loaded')
+  // $('.article_title').on('click', () => {
+  //   window.alert('CLICKED')
+  // })
 })
+
+document.addEventListener("turbo:load", () => {
+  $('.article_title').on('click', () => {
+    window.alert('CLICKED')
+  })
+});
