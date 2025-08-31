@@ -430,6 +430,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  mini_magick
   pg (>= 0.18, < 2.0)
   pry-byebug
   psych (~> 3.1)
