@@ -8,3 +8,4 @@ pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.7.1/dist/jquery.js", preload: true
+pin "axios", to: "https://ga.jspm.io/npm:axios@1.11.0/dist/esm/axios.js", preload: true
