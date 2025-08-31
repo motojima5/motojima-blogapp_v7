@@ -11,14 +11,11 @@ window.jQuery = $;
 import axios from "axios";
 
 
-document.addEventListener("turbo:load", () => {
+document.addEventListener("turbolinks:load", () => {
   $(".article_title").on("click", () => {
     axios.get("/")
       .then((response) => {
         console.log(response);
       })
-      // .catch((error) => {
-      //   console.error("Error:", error);
-      // });
   });
 });
