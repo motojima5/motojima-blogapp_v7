@@ -10,17 +10,21 @@ window.jQuery = $;
 
 import axios from "axios";
 
+const handleHeartDisplay = (hasLiked) => {
+  if (hasLiked) {
+    $('.active-heart').removeClass('hidden')
+  } else {
+    $('.inactive-heart').removeClass('hidden')
+  }
+}
+
 document.addEventListener("turbo:load", () => {
   const dataset = $('#article-show').data()
-  // console.log(dataset);
   const articleId = dataset.articleId
+
   axios.get(`/articles/${articleId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
-      if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
-      } else {
-        $('.inactive-heart').removeClass('hidden')
-      }
+      handleHeartDisplay(hasLiked)
     })
 });
