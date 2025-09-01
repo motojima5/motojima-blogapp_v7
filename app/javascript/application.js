@@ -36,7 +36,10 @@ document.addEventListener("turbo:load", () => {
       }
     })
       .then((response) => {
-        console.log(response);
+        if(response.data.status === 'ok') {
+          $('.active-heart').removeClass('hidden')
+          $('.inactive-heart').addClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('Error')
@@ -52,7 +55,10 @@ document.addEventListener("turbo:load", () => {
       }
     })
       .then((response) => {
-        console.log(response);
+        if(response.data.status === 'ok') {
+          $('.active-heart').addClass('hidden')
+          $('.inactive-heart').removeClass('hidden')
+        }
       })
       .catch((e) => {
         window.alert('Error')
