@@ -37,6 +37,26 @@ document.addEventListener("turbo:load", () => {
     $('.comment-text-area').removeClass('hidden')
   })
 
+  $('.add-comment-button').on('click', () => {
+    const content = $('#comment_content').val()
+    if (!content) {
+      window.alert('コメントを入力してください')
+    } else {
+      axios.post(`/articles/${articleId}/comments`, { comment: {content: content} }, {
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        }
+      })
+        .then((res) => {
+          const comment = res.data
+          $('.comments-container').append(
+            `<div class="article_comment"><p>${comment.content}</p></div>`
+          )
+          $('#comment_content').val('')
+        })
+    }
+  })
+
   axios.get(`/articles/${articleId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
