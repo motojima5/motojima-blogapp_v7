@@ -10,12 +10,12 @@ window.jQuery = $;
 
 import axios from "axios";
 
-
-document.addEventListener("turbolinks:load", () => {
-  $(".article_title").on("click", () => {
-    axios.get("/")
-      .then((response) => {
-        console.log(response);
-      })
-  });
+document.addEventListener("turbo:load", () => {
+  const dataset = $('#article-show').data()
+  // console.log(dataset);
+  const articleId = dataset.articleId
+  axios.get(`/articles/${articleId}/like`)
+    .then((response) => {
+      console.log(response);
+    })
 });
