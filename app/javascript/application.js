@@ -27,4 +27,36 @@ document.addEventListener("turbo:load", () => {
       const hasLiked = response.data.hasLiked
       handleHeartDisplay(hasLiked)
     })
+
+  $('.inactive-heart').on('click', () => {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    axios.post(`/articles/${articleId}/like`, {}, {
+      headers: {
+        'X-CSRF-Token': csrfToken
+      }
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        window.alert('Error')
+        console.log(e);
+      })
+  })
+
+  $('.active-heart').on('click', () => {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    axios.delete(`/articles/${articleId}/like`, {
+      headers: {
+        'X-CSRF-Token': csrfToken
+      }
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        window.alert('Error')
+        console.log(e);
+      })
+  })
 });
