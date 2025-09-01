@@ -83,7 +83,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # 送信者のメールアドレスのドメイン
-  config.action_mailer.default_url_options = { host: 'https://blogapp-production-063024ec9045.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'blogapp-production-063024ec9045.herokuapp.com' }
 
   # Mailgun
   ActionMailer::Base.smtp_settings = {
