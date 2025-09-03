@@ -35,7 +35,7 @@ document.addEventListener("turbo:load", () => {
   const dataset = $('#article-show').data()
   const articleId = dataset.articleId
 
-  axios.get(`/articles/${articleId}/comments`)
+  axios.get(`/api/articles/${articleId}/comments`)
     .then((response) => {
       const comments = response.data
       comments.forEach((comment) => {
@@ -50,7 +50,7 @@ document.addEventListener("turbo:load", () => {
     if (!content) {
       window.alert('コメントを入力してください')
     } else {
-      axios.post(`/articles/${articleId}/comments`, { comment: {content: content} }, {
+      axios.post(`/api/articles/${articleId}/comments`, { comment: {content: content} }, {
         headers: {
           'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
         }
@@ -63,7 +63,7 @@ document.addEventListener("turbo:load", () => {
     }
   })
 
-  axios.get(`/articles/${articleId}/like`)
+  axios.get(`/api/articles/${articleId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
       handleHeartDisplay(hasLiked)
@@ -71,7 +71,7 @@ document.addEventListener("turbo:load", () => {
 
   $('.inactive-heart').on('click', () => {
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-    axios.post(`/articles/${articleId}/like`, {}, {
+    axios.post(`/api/articles/${articleId}/like`, {}, {
       headers: {
         'X-CSRF-Token': csrfToken
       }
@@ -90,7 +90,7 @@ document.addEventListener("turbo:load", () => {
 
   $('.active-heart').on('click', () => {
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-    axios.delete(`/articles/${articleId}/like`, {
+    axios.delete(`/api/articles/${articleId}/like`, {
       headers: {
         'X-CSRF-Token': csrfToken
       }
